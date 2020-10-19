@@ -12,7 +12,7 @@ RUN apk update && apk --no-cache add shadow
 
 # Override permissions with user/group of the host
 #RUN usermod -u $DOCKER_USER www-data
-RUN groupmod -g $DOCKER_USER_GROUP www-data
+#RUN groupmod -g $DOCKER_USER_GROUP www-data
 ## Change files with old uid/gid
 RUN find /var/www/ -group 82 -exec chgrp -h $DOCKER_USER_GROUP {} \; && find /var/www/ -user 82 -exec chown -h $DOCKER_USER {} \;
 ## User www-data can su (for phproot)
